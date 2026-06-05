@@ -1,0 +1,83 @@
+Data Cleaning & Preparation
+📌 Project Overview
+This project is part of the Decode Labs Data Analytics Internship Program. The objective of this project is to clean and prepare raw data for analysis using Python and Pandas. Data cleaning is an essential step in the data analytics process because raw datasets often contain missing values, duplicate records, inconsistent formatting, and other quality issues.
+The project demonstrates how to transform raw data into a clean, reliable, and analysis-ready dataset.
+🎯 Objective
+The primary objectives of this project are:
+Handle missing values in the dataset
+Remove duplicate records
+Standardize date formats
+Clean and format text data
+Improve overall data quality and consistency
+Prepare the dataset for further analysis
+🛠 Technologies Used
+The following technologies and libraries were used:
+Python
+Pandas
+OpenPyXL
+Visual Studio Code (VS Code)
+
+Files Description
+Decode_labs_dataset.xlsx
+Contains the original raw dataset with missing values, duplicates, and inconsistent formatting.
+clean_data.py
+Python script used to perform all data cleaning operations.
+cleaned_dataset.xlsx
+Final cleaned dataset generated after preprocessing.
+requirements.txt
+Contains required Python libraries.
+🔄 Data Cleaning Process
+The following preprocessing steps were performed:
+1. Load Dataset
+The Excel dataset was loaded into a Pandas DataFrame.
+import pandas as pd
+
+df = pd.read_excel("Decode_labs_dataset.xlsx")
+2. Identify Missing Values
+The dataset was checked for null or missing values.
+df.isnull().sum()
+3. Handle Missing Values
+Missing values in important columns were filled using appropriate methods.
+df["CouponCode"] = df["CouponCode"].fillna("No Coupon")
+4. Remove Duplicate Records
+Duplicate entries were identified and removed.
+df = df.drop_duplicates()
+5. Standardize Date Formats
+Date columns were converted into a consistent format.
+df["Date"] = pd.to_datetime(df["Date"])
+6. Clean Text Columns
+Text fields were standardized by removing extra spaces and converting values into title case.
+df["Product"] = df["Product"].str.strip().str.title()
+7. Save Cleaned Dataset
+The cleaned dataset was exported to a new Excel file.
+df.to_excel("cleaned_dataset.xlsx", index=False)
+📊 Results
+After cleaning, the dataset became:
+More consistent
+Free from duplicate records
+Easier to analyze
+Improved in accuracy and reliability
+Ready for data analytics tasks
+📈 Output
+The project successfully generated:
+cleaned_dataset.xlsx
+which contains the final cleaned and processed data.
+🎓 Learning Outcomes
+Through this project, the following concepts were learned:
+Data Cleaning Techniques
+Data Preprocessing
+Handling Missing Values
+Removing Duplicate Records
+Working with Excel Files using Pandas
+Data Quality Improvement
+Data Preparation Workflow
+🚀 How to Run the Project
+Step 1: Install Dependencies
+pip install pandas openpyxl
+Step 2: Run the Python Script
+python clean_data.py
+Step 3: Check Output
+After successful execution, the cleaned dataset will be generated as:
+cleaned_dataset.xlsx
+
+This project demonstrates the importance of data cleaning in real-world analytics workflows. By handling missing values, removing duplicates, standardizing formats, and improving data quality, the dataset was successfully transformed into a clean and reliable source for future analysis.
